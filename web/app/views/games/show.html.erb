@@ -1,34 +1,41 @@
-<h1>It's <%= @game.current_player %>'s turn</h1>
-
-<ul>
-	<% @players.each do |player| %>
-	  <li>
-	    <%= player %>
-	  </li>
+<div class="container">
+	<% if flash[:success] %>
+		<%= flash[:success] %>
 	<% end %>
-</ul>
 
-<div class="rollButton">
-	<%= form_tag("/games/#{@game.id}", method: "put") do %>
-		<%= hidden_field_tag("move", "roll_dice")  %>
-	  <%= submit_tag("Roll Dice") %>
-  <% end %>
-</div>
-<div class="stopButton">
-	<%= form_tag("/games/#{@game.id}", method: "put") do %>
-		<%= hidden_field_tag("move", "stop")  %>
-	  <%= submit_tag("Stop") %>
-  <% end %>
-</div>
+	<h1>It's <%= @game.current_player %>'s turn</h1>
 
-<div class="rolled">
 	<ul>
-		<% if @last_move.rolls != [] %>
-		<% @last_move.rolls.last.results.each do |dice| %>
+		<% @players.each do |player| %>
 		  <li>
-		    <%= dice.color %> - <%= dice.type %>
+			    Player: <%= player %> - Score: <%= @game.score_for(player) %>
+			    <%# NEED TO ADD WOUNDS AND DICE IN THE CUP PER TURN %>
 		  </li>
 		<% end %>
-		<% end %>
 	</ul>
+
+	<div class="btn">
+		<%= form_tag("/games/#{@game.id}", method: "put") do %>
+			<%= hidden_field_tag("move", "roll_dice")  %>
+		  <%= submit_tag("Roll Dice", class: "btn btn-success") %>
+	  <% end %>
+	</div>
+	<div class="btn">
+		<%= form_tag("/games/#{@game.id}", method: "put") do %>
+			<%= hidden_field_tag("move", "stop")  %>
+		  <%= submit_tag("Stop", class: "btn btn-danger") %>
+	  <% end %>
+	</div>
+
+	<div class="rolled">
+		<ul>
+			<% if @last_move.rolls != [] %>
+				<% @last_move.rolls.last.results.each do |dice| %>
+				  <li>
+				    <%= dice.color %> - <%= dice.type %>
+				  </li>
+				<% end %>
+			<% end %>
+		</ul>
+	</div>
 </div>

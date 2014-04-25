@@ -1,19 +1,21 @@
-<% if @error %>
-	<%= @error %>
-<% end %>
+<div class="container">
+	<% if @error %>
+		<%= @error %>
+	<% end %>
 
-<%= form_tag("/games", method: "post") do %>
-  <%= label_tag("players[]", "Player Name: ") %>
-  <%= text_field_tag("players[]") %><br>
-  <%= label_tag("players[]", "Player Name: ") %>
-  <%= text_field_tag("players[]") %><br>
-  <%= label_tag("players[]", "Player Name: ") %>
-  <%= text_field_tag("players[]") %><br>
-  <%= label_tag("players[]", "Player Name: ") %>
-  <%= text_field_tag("players[]") %><br>
-  <%= label_tag("players[]", "Player Name: ") %>
-  <%= text_field_tag("players[]") %><br>
-  <%= label_tag("players[]", "Player Name: ") %>
-  <%= text_field_tag("players[]") %><br>
-  <%= submit_tag("Create Game") %>
-<% end %>
+	<%= form_tag("/games", method: "post") do %>
+	  <%= label_tag("players[]", "Player Name: ") %>
+	  <%= text_field_tag("players[]", @players) %><br>
+	  <%= label_tag("players[]", "Player Name: ") %>
+	  <%= text_field_tag("players[]", @players) %><br>
+	  <%= label_tag("players[]", "Player Name: ") %>
+	  <%= text_field_tag("players[]", @players) %><br>
+	  <%= label_tag("players[]", "Player Name: ") %>
+	  <%= text_field_tag("players[]", @players) %><br>
+	  <%= label_tag("players[]", "Player Name: ") %>
+	  <%= text_field_tag("players[]", @players) %><br>
+	  <%= label_tag("players[]", "Player Name: ") %>
+	  <%= text_field_tag("players[]", @players) %><br>
+	  <%= submit_tag("Create Game") %>
+	<% end %>
+</div>

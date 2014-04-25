@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
 	def new
-		
+		# @game = RabbitDice.Game.new
+		@players = []
 	end
 
 	def create
@@ -12,17 +13,19 @@ class GamesController < ApplicationController
 		end
 		@result = RabbitDice::CreateGame.run(:players => players)
 		
-
 		if @result.success?
 			flash[:success] = "New Game Created"
 			redirect_to "/games/#{@result.game.id}"
 		else
 			@error = "#{@result.error}"
+			# @game =
+			@players = players
 			render 'new'
 		end
 	end
 
 	def show
+		flash[:success]
 		@game = RabbitDice.db.get_game(params[:id].to_i)
 		@players = @game.players
 		@last_move = @game.turns.last
