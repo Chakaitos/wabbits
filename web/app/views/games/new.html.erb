@@ -1,0 +1,19 @@
+<% if @error %>
+	<%= @error %>
+<% end %>
+
+<%= form_tag("/games", method: "post") do %>
+  <%= label_tag("players[]", "Player Name: ") %>
+  <%= text_field_tag("players[]") %><br>
+  <%= label_tag("players[]", "Player Name: ") %>
+  <%= text_field_tag("players[]") %><br>
+  <%= label_tag("players[]", "Player Name: ") %>
+  <%= text_field_tag("players[]") %><br>
+  <%= label_tag("players[]", "Player Name: ") %>
+  <%= text_field_tag("players[]") %><br>
+  <%= label_tag("players[]", "Player Name: ") %>
+  <%= text_field_tag("players[]") %><br>
+  <%= label_tag("players[]", "Player Name: ") %>
+  <%= text_field_tag("players[]") %><br>
+  <%= submit_tag("Create Game") %>
+<% end %>

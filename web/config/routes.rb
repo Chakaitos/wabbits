@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  get "games/new", to: 'games#new'
+  post "games", to: 'games#create'
+  get "games/:id", to: 'games#show'
+  put "games/:id", to: 'games#update'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +59,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  root "games#new"
 end

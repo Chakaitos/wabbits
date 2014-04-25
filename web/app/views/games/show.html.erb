@@ -1,0 +1,34 @@
+<h1>It's <%= @game.current_player %>'s turn</h1>
+
+<ul>
+	<% @players.each do |player| %>
+	  <li>
+	    <%= player %>
+	  </li>
+	<% end %>
+</ul>
+
+<div class="rollButton">
+	<%= form_tag("/games/#{@game.id}", method: "put") do %>
+		<%= hidden_field_tag("move", "roll_dice")  %>
+	  <%= submit_tag("Roll Dice") %>
+  <% end %>
+</div>
+<div class="stopButton">
+	<%= form_tag("/games/#{@game.id}", method: "put") do %>
+		<%= hidden_field_tag("move", "stop")  %>
+	  <%= submit_tag("Stop") %>
+  <% end %>
+</div>
+
+<div class="rolled">
+	<ul>
+		<% if @last_move.rolls != [] %>
+		<% @last_move.rolls.last.results.each do |dice| %>
+		  <li>
+		    <%= dice.color %> - <%= dice.type %>
+		  </li>
+		<% end %>
+		<% end %>
+	</ul>
+</div>

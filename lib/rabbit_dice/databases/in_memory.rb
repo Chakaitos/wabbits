@@ -3,11 +3,13 @@ module RabbitDice
     class InMemory
 
       def initialize
+        @game_id_counter = 100
         @games = {}
       end
 
       def create_game(attrs)
         game = Game.new(:players => attrs[:players], :dice_cup => DiceCup.new)
+        game.id = (@game_id_counter += 1)
         @games[game.id] = game
 
         starting_player = game.players.sample
