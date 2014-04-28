@@ -1,0 +1,87 @@
+<div class="header">
+<div class="header-image-small"></div>
+<div class="container-for-game">
+	<div class="top-area">
+		<img src="/assets/eyelids.png" id='eyelids'></img>
+			<h1>It's <%= @game.current_player %>'s turn</h1>
+	</div>
+		<div class='game-area'>
+			<div class="scores">
+				<h1>Scores</h1>
+				<ul style="list-style-type: none;">
+					<% @players.each do |player| %>
+					  <li>
+						    Player: <%= player %> - Score: <%= @game.score_for(player) %>
+						    <%# NEED TO ADD WOUNDS AND DICE IN THE CUP PER TURN %>
+					  </li>
+					<% end %>
+				</ul>
+			</div>
+
+			<div class="btn">
+				<%= form_tag("/games/#{@game.id}", method: "put") do %>
+					<%= hidden_field_tag("move", "roll_dice")  %>
+				  <%= submit_tag("Roll Dice", class: "btn btn-success") %>
+			  <% end %>
+			</div><br>
+			<div class="btn">
+				<%= form_tag("/games/#{@game.id}", method: "put") do %>
+					<%= hidden_field_tag("move", "stop")  %>
+				  <%= submit_tag("Stop", class: "btn btn-danger") %>
+			  <% end %>
+			</div>
+
+			<div class="rolled">
+				<% if @last_move.rolls != [] %>
+					<h1>You Rolled:</h1>
+				<% end %>
+				<ul>
+					<% if @last_move.rolls != [] %>
+						<% @last_move.rolls.last.results.each do |dice| %>
+						  <li style="color: <%= dice.color %>;">
+								<%= dice.type %>
+						  </li>
+						<% end %>
+					<% end %>
+				</ul>
+			</div>
+
+
+			<div class="roll-count">
+				<ul>
+					<% if @last_move.rolls != [] %>
+					  <li>
+							Score:
+					  </li>
+					  <li>
+							<%= @last_move.rolls.sum_attr(:score) %>
+					  </li>
+				    <li>
+				  		Wounds:
+				    </li>
+				    <li>
+				  		<%= @last_move.rolls.sum_attr(:wounds) %>
+				    </li>
+					<% end %>
+				</ul>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<%= javascript_tag do %>
+	$('#eyelids').hide();
+	var loopImages = function(){
+	  $('#eyelids').fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100);
+	}
+	window.setInterval(function() {
+    loopImages();
+	}, 15000);
+<% end %>

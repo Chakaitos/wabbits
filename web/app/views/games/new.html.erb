@@ -1,0 +1,30 @@
+<div class="header">
+<div class="header-image-small"></div>
+
+<div class="instructions">
+	<h2>Instructions</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis odio nec augue viverra aliquam condimentum porta metus. Aliquam pellentesque vel eros vel lacinia. Quisque fringilla imperdiet est in adipiscing.</p>
+</div>
+
+<div class="container">
+<div class="more-button"><button>Add Player +</button></div>
+	<%= form_tag("/games", method: "post") do %>
+		<div class="original-list">
+		  <%= label_tag("players[]", "Player Name: ") %>
+		  <%= text_field_tag("players[]", @players) %><br>
+		  <%= label_tag("players[]", "Player Name: ") %>
+		  <%= text_field_tag("players[]", @players) %><br>
+		</div>
+	  <br/><%= submit_tag("Begin", :class => "create-button") %>
+	<% end %>
+</div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<%= javascript_tag do %>
+	$(".more-button").click(function(){
+		var e = $('<label for="players_" style="padding-right: 4px;">Player Name: </label><input type="text" name="players[]"><br>');
+
+  	$(".original-list").append(e);
+  });
+<% end %>
