@@ -1,0 +1,49 @@
+/home/vagrant/.rbenv/versions/2.1.1/bin/ruby extconf.rb 
+checking for vm_core.h... no
+/vagrant/backend/wabbits/web/vendor/bundle/gems/ruby_core_source-0.1.5/lib/ruby_core_source.rb:39:in `create_makefile_with_core': Use RbConfig instead of obsolete and deprecated Config.
+/vagrant/backend/wabbits/web/vendor/bundle/gems/ruby_core_source-0.1.5/lib/ruby_core_source.rb:39:in `create_makefile_with_core': Use RbConfig instead of obsolete and deprecated Config.
+checking for vm_core.h... no
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/home/vagrant/.rbenv/versions/2.1.1/bin/ruby
+	--with-ruby-dir
+	--without-ruby-dir
+	--with-ruby-include
+	--without-ruby-include=${ruby-dir}/include
+	--with-ruby-lib
+	--without-ruby-lib=${ruby-dir}/lib
+/vagrant/backend/wabbits/web/vendor/bundle/gems/ruby_core_source-0.1.5/lib/contrib/uri_ext.rb:268:in `block (2 levels) in read': Looking for http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-2.1.1-p76.tar.gz and all I got was a 404! (URI::NotFoundError)
+	from /home/vagrant/.rbenv/versions/2.1.1/lib/ruby/2.1.0/net/http.rb:1415:in `block (2 levels) in transport_request'
+	from /home/vagrant/.rbenv/versions/2.1.1/lib/ruby/2.1.0/net/http/response.rb:162:in `reading_body'
+	from /home/vagrant/.rbenv/versions/2.1.1/lib/ruby/2.1.0/net/http.rb:1414:in `block in transport_request'
+	from /home/vagrant/.rbenv/versions/2.1.1/lib/ruby/2.1.0/net/http.rb:1405:in `catch'
+	from /home/vagrant/.rbenv/versions/2.1.1/lib/ruby/2.1.0/net/http.rb:1405:in `transport_request'
+	from /home/vagrant/.rbenv/versions/2.1.1/lib/ruby/2.1.0/net/http.rb:1378:in `request'
+	from /home/vagrant/.rbenv/versions/2.1.1/lib/ruby/2.1.0/net/http.rb:1371:in `block in request'
+	from /home/vagrant/.rbenv/versions/2.1.1/lib/ruby/2.1.0/net/http.rb:853:in `start'
+	from /home/vagrant/.rbenv/versions/2.1.1/lib/ruby/2.1.0/net/http.rb:1369:in `request'
+	from /vagrant/backend/wabbits/web/vendor/bundle/gems/ruby_core_source-0.1.5/lib/contrib/uri_ext.rb:239:in `block in read'
+	from /vagrant/backend/wabbits/web/vendor/bundle/gems/ruby_core_source-0.1.5/lib/contrib/uri_ext.rb:286:in `connect'
+	from /vagrant/backend/wabbits/web/vendor/bundle/gems/ruby_core_source-0.1.5/lib/contrib/uri_ext.rb:234:in `read'
+	from /vagrant/backend/wabbits/web/vendor/bundle/gems/ruby_core_source-0.1.5/lib/contrib/uri_ext.rb:128:in `download'
+	from /vagrant/backend/wabbits/web/vendor/bundle/gems/ruby_core_source-0.1.5/lib/ruby_core_source.rb:55:in `block in create_makefile_with_core'
+	from /home/vagrant/.rbenv/versions/2.1.1/lib/ruby/2.1.0/tempfile.rb:324:in `open'
+	from /vagrant/backend/wabbits/web/vendor/bundle/gems/ruby_core_source-0.1.5/lib/ruby_core_source.rb:51:in `create_makefile_with_core'
+	from extconf.rb:19:in `<main>'
+Requesting http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-2.1.1-p76.tar.gz
+
+extconf failed, exit code 1
