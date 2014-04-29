@@ -161,13 +161,25 @@ h1.customfont {
   padding-left: 200px;
 }
 
+.instruction-box {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  overflow-y:hidden; 
+  overflow-x:hidden;
+}
+
 .instructions h2 {
   color: white;
   font-family: "RabbitDice", Verdana, Tahoma;
 }
 
-.instructions p {
-  color:white;
+.instructions p, ul {
+  color: #CCC;
+}
+
+.instructions strong {
+  color: #FFF;
 }
 
 #eyelids {
