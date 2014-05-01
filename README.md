@@ -1,4 +1,4 @@
-Rabbit Dice Game!
+Rabbit Dice Game!  [![Build Status](https://travis-ci.org/drewg233/wabbits.svg?branch=master)](https://travis-ci.org/drewg233/wabbits)
 =================
 
 ![alt tag](https://raw.githubusercontent.com/drewg233/wabbits/master/web/app/assets/images/screenshot.png)
